@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Heavy";
+  src: url("/fonts/Gilroy-Heavy.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url("/fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Light";
+  src: url("/fonts/Gilroy-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Gilroy-Medium", "Gilroy-Bold", ui-sans-serif, system-ui, sans-serif;
+
+  --color-misk-ink: #0a0a0a;
+  --color-misk-muted: #636363;
+  --color-misk-surface: #f5f5f5;
+  --color-misk-purple: #6c6cab;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  background: var(--color-misk-surface);
+  color: var(--color-misk-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+  width: 100%;
+}
+
+.text-hero-gradient {
+  background: linear-gradient(255.66deg, #ffffff 37%, #6c6cab 77.48%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  /* keep descenders (g/y/p) from clipping with background-clip */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  overflow: visible;
+}
+
+.text-services-gradient {
+  background: linear-gradient(268.31deg, #ffffff 0%, #6c6cab 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  overflow: visible;
+}
+
+/* Soften canvas blobs like nextio's filmed glow */
+.hero-canvas-soft {
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  background: radial-gradient(
+    ellipse 80% 50% at 70% 100%,
+    rgba(108, 108, 171, 0.12),
+    transparent 60%
+  );
+}
+
+.hero-bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* nextio services icon — soft corner glow “breathing” */
+@keyframes service-icon-glow {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.12) saturate(1.15);
+    transform: scale(1.03);
+  }
+}
+
+.service-icon-glow {
+  animation: service-icon-glow 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-canvas-soft {
+    backdrop-filter: none;
+  }
+
+  .service-icon-glow {
+    animation: none;
+  }
+}
+
