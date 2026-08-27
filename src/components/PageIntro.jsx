@@ -37,12 +37,8 @@ export default function PageIntro({ onDone }) {
       <motion.div
         className="flex flex-col items-center px-6"
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={
-          exiting
-            ? { opacity: 0, scale: 0.96, y: -28 }
-            : { opacity: 1, scale: 1, y: 0 }
-        }
-        transition={{ duration: exiting ? 0.4 : 0.9, ease: soft, delay: exiting ? 0 : 0.08 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: soft, delay: 0.08 }}
       >
         <img
           src={LOGO_URL}
@@ -55,8 +51,8 @@ export default function PageIntro({ onDone }) {
         <motion.span
           className="mt-6 block h-px w-[72px] origin-center bg-white/40"
           initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: exiting ? 0 : 1, opacity: exiting ? 0 : 1 }}
-          transition={{ duration: 0.55, delay: exiting ? 0 : 0.5, ease: soft }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 0.55, delay: 0.5, ease: soft }}
         />
       </motion.div>
     </motion.div>
