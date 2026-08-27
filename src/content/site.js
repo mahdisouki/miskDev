@@ -243,3 +243,37 @@ export const work = {
   heroSub:
     'We’ve helped businesses across industries achieve their goals. Here are some of our selected projects.',
 }
+
+/** Request a demo — 3-step flow copy (Figma) */
+export const demo = {
+  eyebrow: 'Focused demo',
+  heroLead: 'See it in ',
+  heroTrail: 'action.',
+  heroSub:
+    'Select a product below and let us show you how we can help achieve your goals, no strings attached.',
+  pickTitleLead: 'Pick the product closest to ',
+  pickTitleTrail: 'your use case',
+  pickTitleEnd: ' — or tell us what you’re building.',
+  selectCta: 'Select this project',
+  formTitle: 'No commitment. Just a focused demo.',
+  formCta: 'Start my focused demo',
+  pitchTitleLead: 'Let’s build it ',
+  pitchTitleTrail: 'together.',
+  pitchBodyLead: 'Tell us your goals. ',
+  pitchBodyTrail:
+    'We’ll show you the exact features that solve your business problems.',
+  benefits: [
+    { title: 'Quick response', body: 'Reply within one business day.', icon: 'quickResponse' },
+    { title: 'Direct next steps', body: 'Clear actions after the call.', icon: 'clearNextSteps' },
+    { title: 'No pressure', body: 'Walkthrough only — decide later.', icon: 'quickResponse' },
+  ],
+  expertLine: 'Trusted by experts. You’re joining 1,500+ other leading product builders.',
+  scheduleTitle: 'Pick your time.',
+  scheduleMeta: '30 min meeting · Via Microsoft Teams',
+  timezoneLabel: 'Timezone is Central Time (GMT−5)',
+  confirmCta: 'Confirm · GMT −5:00',
+  bookedTitle: 'You’re booked.',
+  bookedCta: 'Push to home',
+  rescheduleLabel: 'Reschedule another time',
+  timeSlots: ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '14:00', '14:30', '15:00', '15:30'],
+}

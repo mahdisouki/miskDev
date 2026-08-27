@@ -95,6 +95,15 @@ body {
   overflow: visible;
 }
 
+/* Accent gradient for light surfaces (demo pick title, etc.) */
+.text-demo-accent {
+  background: linear-gradient(90deg, #6c6cab 0%, #9b9bdb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Soften canvas blobs like nextio's filmed glow */
 .hero-canvas-soft {
   backdrop-filter: blur(28px);
