@@ -95,7 +95,7 @@ export default function AboutUs() {
               <img
                 src={LOGO_URL}
                 alt="MISK MANAGERS"
-                className="mb-5 h-[32px] w-auto object-contain object-left brightness-0"
+                className="mb-5 h-[32px] w-auto object-contain object-left"
                 height={32}
               />
               <h2 className="font-['Gilroy-Medium'] text-[clamp(1.75rem,3.2vw,46px)] font-normal leading-[1.1] md:text-[46px] md:leading-[50.6px]">

@@ -183,7 +183,7 @@ function BrandLogo({ className = 'h-[32px]' }) {
     <img
       src={LOGO_URL}
       alt="MISK MANAGERS"
-      className={`w-auto object-contain object-left brightness-0 ${className}`}
+      className={`w-auto object-contain object-left ${className}`}
       height={32}
     />
   )

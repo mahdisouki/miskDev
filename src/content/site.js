@@ -2,7 +2,7 @@
 import { assets } from './assets'
 
 export const LOGO_URL =
-  'https://res.cloudinary.com/wntdlk90/image/upload/v1786088513/Misk_Managers_2_1_ua8shy.png'
+  'https://res.cloudinary.com/wntdlk90/image/upload/v1787832248/Misk_Managers_6_1_tjjmcz.png'
 
 export const EMAIL = 'hi@miskmanagers.com'
 

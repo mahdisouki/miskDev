@@ -75,7 +75,7 @@ export default function LetsTalk() {
                   <img
                     src={LOGO_URL}
                     alt="MISK MANAGERS"
-                    className="h-[22px] w-auto object-contain object-left brightness-0"
+                    className="h-[22px] w-auto object-contain object-left"
                     height={22}
                   />
                   <h3 className="max-w-[426px] font-['Gilroy-Medium'] text-[clamp(1.5rem,2.5vw,30px)] font-normal leading-9 text-[#0A0A0A]">

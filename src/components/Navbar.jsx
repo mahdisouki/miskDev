@@ -160,7 +160,7 @@ function MobileMenu({ open, onClose }) {
               <img
                 src={LOGO_URL}
                 alt="MISK MANAGERS"
-                className="h-[28px] w-auto object-contain brightness-0"
+                className="h-[28px] w-auto object-contain"
               />
             </Link>
             <MenuPill open onClick={onClose} />

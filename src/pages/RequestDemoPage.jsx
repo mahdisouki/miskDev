@@ -120,7 +120,7 @@ export default function RequestDemoPage() {
                   <img
                     src={LOGO_URL}
                     alt="MISK MANAGERS"
-                    className="mb-4 h-[20px] w-auto object-contain object-left brightness-0"
+                    className="mb-4 h-[20px] w-auto object-contain object-left"
                     height={20}
                   />
                   <h3 className="font-['Gilroy-Medium'] text-[clamp(1.35rem,2.2vw,26px)] font-normal leading-[1.25] text-[#0A0A0A]">

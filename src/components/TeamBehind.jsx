@@ -62,7 +62,7 @@ export default function TeamBehind() {
                 <img
                   src={LOGO_URL}
                   alt="MISK MANAGERS"
-                  className="mb-5 h-[32px] w-auto object-contain object-left brightness-0"
+                  className="mb-5 h-[32px] w-auto object-contain object-left"
                   height={32}
                 />
                 <h2 className="max-w-[739px] font-['Gilroy-Medium'] text-[clamp(2rem,4vw,52px)] font-normal leading-[1.1]">
