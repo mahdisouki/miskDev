@@ -75,7 +75,7 @@ export default function DemoConfirmedPage() {
             </div>
 
             <h1 className="font-['Gilroy-Medium'] text-[clamp(2.25rem,5vw,56px)] font-normal leading-[1.05] tracking-[-0.02em] text-white">
-              You&apos;re <span className="text-[#C4C4E8]">booked.</span>
+              You&apos;re <span className="text-[#6C6CAB]">booked.</span>
             </h1>
 
             <p className="mt-4 font-['Gilroy-Medium'] text-[15px] font-normal text-white/60 md:mt-5 md:text-[17px]">

@@ -39,7 +39,7 @@ function DemoHero() {
           {demo.eyebrow}
         </p>
 
-        <h1 className="max-w-[900px] font-['Gilroy-Medium'] text-[clamp(2.5rem,6.5vw,72px)] font-normal leading-[1.05] tracking-[-0.02em] text-[#C4C4E8]">
+        <h1 className="max-w-[900px] font-['Gilroy-Medium'] text-[clamp(2.5rem,6.5vw,72px)] font-normal leading-[1.05] tracking-[-0.02em] text-[#6C6CAB]">
           See it in action.
         </h1>
         <p className="mt-5 max-w-[480px] font-['Gilroy-Medium'] text-[14px] font-normal leading-[1.45] text-white/55 md:mt-6 md:text-[17px]">
@@ -225,7 +225,7 @@ export default function RequestDemoPage() {
                 <div>
                   <h2 className="max-w-[520px] font-['Gilroy-Medium'] text-[clamp(2.25rem,5vw,56px)] font-normal leading-[1.08] tracking-[-0.02em]">
                     <span className="text-white">{demo.pitchTitleLead}</span>
-                    <span className="text-[#C4C4E8]">{demo.pitchTitleTrail}</span>
+                    <span className="text-[#6C6CAB]">{demo.pitchTitleTrail}</span>
                   </h2>
                   <p className="mt-5 max-w-[440px] font-['Gilroy-Medium'] text-[clamp(1rem,1.6vw,20px)] font-normal leading-[1.35] md:mt-6">
                     <span className="text-white">{demo.pitchBodyLead}</span>

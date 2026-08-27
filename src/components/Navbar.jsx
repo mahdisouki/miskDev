@@ -313,7 +313,7 @@ export default function Navbar({ ready = true }) {
             >
               <Link
                 to="/request-demo"
-                className="hidden h-[30px] items-center rounded-full bg-[#B8B8E0] px-3.5 font-['Gilroy-Bold'] text-[12px] font-normal leading-3 text-white transition hover:bg-[#A8A8D4] min-[1100px]:inline-flex"
+                className="hidden h-[30px] items-center rounded-full bg-[#6C6CAB] px-3.5 font-['Gilroy-Bold'] text-[12px] font-normal leading-3 text-white transition hover:bg-[#5B5B96] min-[1100px]:inline-flex"
               >
                 Request demo
               </Link>
