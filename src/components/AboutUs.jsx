@@ -46,26 +46,26 @@ function BannerCta({ to, children }) {
 const steps = [
   {
     n: '01',
-    title: 'Strategy & Scope Definition.',
-    body: 'Clear goals, defined scope, and measurable outcomes.',
+    title: 'No Surprises. Ever.',
+    body: 'Scope, budget, and success metrics locked before a single line of code is written.',
     icon: assets.aboutSteps[0],
   },
   {
     n: '02',
-    title: 'Rapid MVP Execution',
-    body: 'Fast validation of product assumptions with real users.',
+    title: 'First Users in Weeks, Not Months.',
+    body: 'We cut scope ruthlessly to ship what validates your riskiest assumptions before you over-invest.',
     icon: assets.aboutSteps[1],
   },
   {
     n: '03',
-    title: 'Enterprise-Grade Delivery',
-    body: 'Production-ready digital products built to scale.',
+    title: 'Code You Can Scale and Own.',
+    body: 'Clean, documented, production-ready systems your internal team can confidently take forward.',
     icon: assets.aboutSteps[2],
   },
   {
     n: '04',
-    title: 'Long-Term Partnership',
-    body: 'Ongoing support, optimization, and product evolution.',
+    title: 'We’re Still Here After Launch.',
+    body: 'Most agencies disappear post-launch. We stay — iterating, optimizing, and scaling as you grow.',
     icon: assets.aboutSteps[3],
   },
 ]
@@ -81,7 +81,32 @@ export default function AboutUs() {
       className="bg-[#F5F5F5] px-[10px] py-0 md:px-[36px]"
     >
       <div className="mx-auto w-full">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-1">
+        <Reveal delay={20} y={170}>
+          <div className="relative flex min-h-[380px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-black px-6 py-16 text-center md:min-h-[432px] md:py-20">
+            {/* Purple glow — bottom center */}
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] opacity-90"
+              style={{
+                background:
+                  'radial-gradient(ellipse 70% 80% at 50% 100%, rgba(108,108,171,0.55) 0%, rgba(60,50,120,0.25) 40%, transparent 70%)',
+              }}
+              aria-hidden="true"
+            />
+
+            <h3 className="relative z-10 max-w-[1240px] font-['Gilroy-Medium'] text-[clamp(1.5rem,4vw,52px)] font-normal leading-[1.15]">
+              <span className="block text-[#8B8BB8]">You&apos;re not paying for time.</span>
+              <span className="block text-[#B8B8DA]">
+                You&apos;re investing in results that grow your business.
+              </span>
+            </h3>
+
+            <div className="relative z-10 mt-10">
+              <BannerCta to="/contact">Discuss your project</BannerCta>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 gap-4 md:mt-[100px] md:grid-cols-4 md:gap-1">
           <Reveal delay={40}>
             <p className="font-['Gilroy-Bold'] text-[16px] font-normal leading-[22.4px] text-[#0A0A0A]">
               <span className="font-['Gilroy-Regular'] text-[#636363]">/</span>
@@ -90,8 +115,8 @@ export default function AboutUs() {
             </p>
           </Reveal>
 
-          <Reveal delay={40} className="md:col-span-2 md:col-start-2">
-            <div className="max-w-[830px]">
+          <Reveal delay={40} className="md:col-span-3 md:col-start-2">
+            <div className="max-w-[890px]">
               <img
                 src={LOGO_URL}
                 alt="MISK MANAGERS"
@@ -99,14 +124,14 @@ export default function AboutUs() {
                 height={32}
               />
               <h2 className="font-['Gilroy-Medium'] text-[clamp(1.75rem,3.2vw,46px)] font-normal leading-[1.1] md:text-[46px] md:leading-[50.6px]">
-                <span className="text-[#090909]">Building digital </span>
-                <span className="text-[#636363]">
-                  products that drive real business value.
+                <span className="block text-[#090909]">Senior-led teams, No middlemen.</span>
+                <span className="block text-[#636363]">
+                  Products clients bet their business on.
                 </span>
               </h2>
-              <p className="mt-6 max-w-[400px] font-['Gilroy-Regular'] text-[16px] font-normal leading-[1.4] text-[#0A0A0A]/70">
-                From fast MVP validation to scalable apps and enterprise-grade systems built for
-                long-term growth.
+              <p className="mt-6 max-w-[890px] font-['Gilroy-Bold'] text-[16px] font-normal leading-[1.5] text-[#0A0A0A]">
+                No hand-offs to juniors. No bloated timelines. Every project is owned end-to-end by
+                the same senior team that scoped it
               </p>
             </div>
           </Reveal>
@@ -140,29 +165,6 @@ export default function AboutUs() {
                 </p>
               </article>
             ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={20} y={170} className="mt-1">
-          <div className="relative mt-1 flex min-h-[380px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-black px-6 py-16 text-center md:min-h-[432px] md:py-20">
-            {/* Purple glow — bottom center */}
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] opacity-90"
-              style={{
-                background:
-                  'radial-gradient(ellipse 70% 80% at 50% 100%, rgba(108,108,171,0.55) 0%, rgba(60,50,120,0.25) 40%, transparent 70%)',
-              }}
-              aria-hidden="true"
-            />
-
-            <h3 className="relative z-10 max-w-[820px] font-['Gilroy-Medium'] text-[clamp(1.75rem,4.2vw,52px)] font-normal leading-[1.15]">
-              <span className="block text-[#8B8BB8]">Not just a supplier,</span>
-              <span className="block text-white">we are your partner.</span>
-            </h3>
-
-            <div className="relative z-10 mt-10">
-              <BannerCta to="/contact">Discuss your project</BannerCta>
-            </div>
           </div>
         </Reveal>
       </div>

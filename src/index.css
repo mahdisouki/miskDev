@@ -94,12 +94,6 @@ body {
   margin-bottom: -0.08em;
   overflow: visible;
 }
-
-/* Accent for light surfaces (demo pick title, etc.) */
-.text-demo-accent {
-  color: #6c6cab;
-}
-
 /* Soften canvas blobs like nextio's filmed glow */
 .hero-canvas-soft {
   backdrop-filter: blur(28px);

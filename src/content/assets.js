@@ -82,6 +82,14 @@ export const assets = {
   peopleIcon:
     'https://res.cloudinary.com/wntdlk90/image/upload/v1786094350/Images_a9ypjr.png',
 
+  /** Services accordion icons (Figma Updates) */
+  serviceIcons: {
+    development: '/services/development.png',
+    design: '/services/design.png',
+    social: '/services/social.png',
+    ai: '/services/ai.png',
+  },
+
   /** About us process step icons (01–04) */
   aboutSteps: [
     'https://res.cloudinary.com/wntdlk90/image/upload/v1786101372/image_1_symrob.png',
@@ -208,6 +216,6 @@ export const testimonials = [
     role: 'TITANS — Head of marketing',
     avatar: assets.people.maria,
     quote:
-      'We have been working with MISK MANAGERS for several years. What I especially appreciate is the speed, professionalism and willingness.',
+      'We have been working with MISK MANAGERS for several years. What I especially appreciate about our cooperation is the speed, professionalism and willingness.',
   },
 ]

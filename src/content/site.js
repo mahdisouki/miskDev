@@ -8,14 +8,13 @@ export const EMAIL = 'hi@miskmanagers.com'
 
 export const navLinks = [
   { label: 'Services', to: '/#services' },
-  { label: 'AI & Automation', to: '/#ai' },
   { label: 'Projects', to: '/projects', badge: '18+' },
   { label: 'About us', to: '/about-us' },
   { label: 'Careers', to: '/#team' },
 ]
 
 export const footerNav = [
-  { label: 'AI & Automation', to: '/#ai' },
+  { label: 'AI Solutions', to: '/#ai' },
   { label: 'About us', to: '/about-us' },
   { label: 'Projects', to: '/projects' },
   { label: 'Pricing', to: '/#pricing' },
@@ -24,7 +23,7 @@ export const footerNav = [
 ]
 
 export const socialLinks = [
-  { label: 'Linkedin', href: '#' },
+  { label: 'LinkedIn', href: '#' },
   { label: 'Instagram', href: '#' },
   { label: 'Dribbble', href: '#' },
 ]
@@ -213,7 +212,7 @@ export const about = {
 }
 
 export const contact = {
-  heroLead: 'Let’s work',
+  heroLead: 'Let’s talk',
   heroTrail: 'together.',
   heroSubLead: 'Fill in the form below',
   heroSubTrail: 'or reach out to us directly:',
@@ -225,6 +224,53 @@ export const contact = {
     name: 'Erik Hajduk',
     role: 'CEO & Founder of MISK MANAGERS',
   },
+  interests: [
+    'Web Design & Development',
+    'Mobile App Development',
+    'UI/UX Design',
+    'Brand Identity',
+    'E-commerce',
+    'Custom Software',
+    'AI & Automation',
+    'Consulting & Strategy',
+  ],
+  defaultInterests: [
+    'Web Design & Development',
+    'Mobile App Development',
+    'AI & Automation',
+  ],
+  industries: [
+    'SaaS / Technology',
+    'Finance',
+    'Healthcare',
+    'E-commerce / Retail',
+    'Education',
+    'Media & Entertainment',
+    'Other',
+  ],
+  locations: [
+    'Europe',
+    'United Kingdom',
+    'North America',
+    'Middle East',
+    'Asia-Pacific',
+    'Other',
+  ],
+  targetMarkets: [
+    'B2B',
+    'B2C',
+    'Both B2B & B2C',
+    'Internal / Enterprise',
+  ],
+  budgets: [
+    'Under $5,000',
+    '$5,000 - $15,000',
+    '$15,000 - $30,000',
+    '$30,000 - $50,000',
+    '$50,000 - $100,000',
+    '$100,000+',
+    'Not sure yet',
+  ],
   offices: [
     {
       title: 'Where to find us?',
@@ -242,38 +288,4 @@ export const work = {
   heroStat: '56+ Successful projects completed',
   heroSub:
     'We’ve helped businesses across industries achieve their goals. Here are some of our selected projects.',
-}
-
-/** Request a demo — 3-step flow copy (Figma) */
-export const demo = {
-  eyebrow: 'Focused demo',
-  heroLead: 'See it in ',
-  heroTrail: 'action.',
-  heroSub:
-    'Select a product below and let us show you how we can help achieve your goals, no strings attached.',
-  pickTitleLead: 'Pick the product closest to ',
-  pickTitleTrail: 'your use case',
-  pickTitleEnd: ' — or tell us what you’re building.',
-  selectCta: 'Select this project',
-  formTitle: 'No commitment. Just a focused demo.',
-  formCta: 'Start my focused demo',
-  pitchTitleLead: 'Let’s build it ',
-  pitchTitleTrail: 'together.',
-  pitchBodyLead: 'Tell us your goals. ',
-  pitchBodyTrail:
-    'We’ll show you the exact features that solve your business problems.',
-  benefits: [
-    { title: 'Quick response', body: 'Reply within one business day.', icon: 'quickResponse' },
-    { title: 'Direct next steps', body: 'Clear actions after the call.', icon: 'clearNextSteps' },
-    { title: 'No pressure', body: 'Walkthrough only — decide later.', icon: 'quickResponse' },
-  ],
-  expertLine: 'Trusted by experts. You’re joining 1,500+ other leading product builders.',
-  scheduleTitle: 'Pick your time.',
-  scheduleMeta: '30 min meeting · Via Microsoft Teams',
-  timezoneLabel: 'Timezone is Central Time (GMT−5)',
-  confirmCta: 'Confirm · GMT −5:00',
-  bookedTitle: 'You’re booked.',
-  bookedCta: 'Push to home',
-  rescheduleLabel: 'Reschedule another time',
-  timeSlots: ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '14:00', '14:30', '15:00', '15:30'],
 }

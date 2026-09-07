@@ -383,7 +383,7 @@ export const projectDetails = {
       name: 'Mária Kavecká',
       role: 'TITANS — Head of marketing',
       quote:
-        'We have been working with MISK MANAGERS for several years. What I especially appreciate is the speed, professionalism and willingness.',
+        'We have been working with MISK MANAGERS for several years. What I especially appreciate about our cooperation is the speed, professionalism and willingness.',
     },
     relevanceEyebrow: 'Relevance beyond this project',
     relevanceTitle:

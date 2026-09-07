@@ -3,7 +3,6 @@ import { motion } from 'motion/react'
 import Hero from '../components/Hero'
 import Clients from '../components/Clients'
 import Projects from '../components/Projects'
-import WhyChooseUs from '../components/WhyChooseUs'
 import Services from '../components/Services'
 import AboutUs from '../components/AboutUs'
 import Experiences from '../components/Experiences'
@@ -16,9 +15,9 @@ import { PAGE_GUTTER, SECTION_GAP } from '../styles/layout'
 const ease = [0.22, 1, 0.36, 1]
 
 /**
- * Landing order (nextio):
- * Hero → Clients → Projects → Why choose us → Services →
- * About us → Experiences → Pricing → Team → FAQ → Let’s talk → Footer
+ * Landing order:
+ * Hero → Clients → Services → About us → Experiences → Projects →
+ * Pricing → Team → FAQ → Let’s talk → Footer
  */
 export default function LandingPage() {
   const { introDone = true } = useOutletContext() || {}
@@ -35,11 +34,10 @@ export default function LandingPage() {
       </motion.div>
       <div className={`mt-[50px] flex flex-col ${SECTION_GAP} md:mt-[140px]`}>
         <Clients />
-        <Projects />
-        <WhyChooseUs />
         <Services />
         <AboutUs />
         <Experiences />
+        <Projects />
         <Pricing />
         <TeamBehind />
         <Faq />

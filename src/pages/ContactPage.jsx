@@ -1,17 +1,23 @@
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import Reveal from '../components/Reveal'
 import { EMAIL, contact } from '../content/site'
-import { assets } from '../content/assets'
 
 const ease = [0.22, 1, 0.36, 1]
 
 const fieldClass =
-  "w-full border-0 bg-transparent p-0 font-['Gilroy-Medium'] text-[16px] text-[#0A0A0A] outline-none placeholder:text-[#0A0A0A] focus:outline-none md:text-[18px]"
+  "w-full border-0 bg-transparent p-0 font-['Gilroy-Medium'] text-[16px] text-[#0A0A0A] outline-none placeholder:text-[#0A0A0A]/45 focus:outline-none md:text-[18px]"
+
+const selectClass =
+  "w-full appearance-none border-0 bg-transparent bg-[length:12px] bg-[right_center] bg-no-repeat p-0 pr-6 font-['Gilroy-Medium'] text-[16px] text-[#0A0A0A] outline-none focus:outline-none md:text-[18px]"
+
+const selectChevron =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%230A0A0A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")"
 
 function FormField({ children, multiline = false }) {
   return (
     <div
-      className={`border-b border-black/15 pb-5 ${multiline ? 'min-h-[180px] pt-1' : 'pt-1'}`}
+      className={`border-b border-black/15 pb-5 ${multiline ? 'min-h-[140px] pt-1' : 'pt-1'}`}
     >
       {children}
     </div>
@@ -27,32 +33,16 @@ function EnvelopeIcon() {
   )
 }
 
-function MapPinIcon() {
+function CheckIcon() {
   return (
-    <svg width="18" height="22" viewBox="0 0 18 22" fill="none" aria-hidden="true">
+    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true">
       <path
-        d="M9 1C5.686 1 3 3.686 3 7c0 5.25 6 14 6 14s6-8.75 6-14c0-3.314-2.686-6-6-6z"
-        stroke="currentColor"
+        d="M1 4l2.8 2.8L9 1.5"
+        stroke="white"
         strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <circle cx="9" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  )
-}
-
-function CopyIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M3 11V3.5A1.5 1.5 0 014.5 2H11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-    </svg>
-  )
-}
-
-function ExternalIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M6 3h7v7M13 3L6 10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
     </svg>
   )
 }
@@ -61,7 +51,7 @@ function SubmitDualButton({ children }) {
   return (
     <motion.button
       type="submit"
-      className="relative inline-flex h-[50px] w-fit shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#0A0A0A] px-[30px] py-[18px] font-['Gilroy-Bold'] text-[14px] font-normal leading-[16.8px] text-white"
+      className="relative inline-flex h-[50px] w-fit shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full bg-[#0A0A0A] px-[30px] py-[18px] font-['Gilroy-Bold'] text-[14px] font-normal leading-[16.8px] text-white"
       initial="rest"
       whileHover="hover"
       animate="rest"
@@ -83,6 +73,7 @@ function SubmitDualButton({ children }) {
           {children}
         </motion.span>
       </span>
+      <span aria-hidden="true">→</span>
     </motion.button>
   )
 }
@@ -120,68 +111,64 @@ function EmailLink({ className = '' }) {
   )
 }
 
-function OfficeCard({ office }) {
+function InterestToggle({ label, checked, onChange }) {
   return (
-    <div className="flex h-full flex-col rounded-[20px] bg-white p-6 sm:p-8 md:p-10 lg:p-12">
-      <h2 className="font-['Gilroy-Medium'] text-[clamp(1.75rem,3vw,40px)] font-normal leading-tight text-[#0A0A0A]">
-        {office.title}
-      </h2>
-
-      <span className="mt-8 inline-flex text-[#0A0A0A]" aria-hidden="true">
-        <MapPinIcon />
+    <button
+      type="button"
+      onClick={() => onChange(!checked)}
+      className="flex items-center gap-3 text-left"
+      aria-pressed={checked}
+    >
+      <span
+        className={`flex size-5 shrink-0 items-center justify-center rounded-full border transition ${
+          checked
+            ? 'border-[#0A0A0A] bg-[#0A0A0A]'
+            : 'border-black/25 bg-transparent'
+        }`}
+        aria-hidden="true"
+      >
+        {checked ? <CheckIcon /> : null}
       </span>
+      <span
+        className={`font-['Gilroy-Medium'] text-[15px] leading-snug md:text-[16px] ${
+          checked ? 'text-[#0A0A0A]' : 'text-[#0A0A0A]/45'
+        }`}
+      >
+        {label}
+      </span>
+    </button>
+  )
+}
 
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="font-['Gilroy-Bold'] text-[16px] text-[#0A0A0A]">{office.name}</p>
-          <p className="mt-2 font-['Gilroy-Medium'] text-[15px] leading-relaxed text-[#636363]">
-            {office.address}
-          </p>
-        </div>
-        <div className="flex gap-2 sm:pt-1">
-          <button
-            type="button"
-            aria-label="Copy address"
-            className="flex size-10 items-center justify-center rounded-[10px] bg-[#F5F5F5] text-[#0A0A0A]/55 transition hover:text-[#0A0A0A]"
-            onClick={() => navigator.clipboard.writeText(office.address)}
-          >
-            <CopyIcon />
-          </button>
-          <a
-            href={`https://maps.google.com/?q=${encodeURIComponent(office.address)}`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open in maps"
-            className="flex size-10 items-center justify-center rounded-[10px] bg-[#F5F5F5] text-[#0A0A0A]/55 transition hover:text-[#0A0A0A]"
-          >
-            <ExternalIcon />
-          </a>
-        </div>
-      </div>
-
-      <div className="my-8 h-px bg-black/10" />
-
-      <div className="mt-auto grid gap-6 sm:grid-cols-2">
-        <div>
-          <p className="font-['Gilroy-Bold'] text-[16px] text-[#0A0A0A]">{office.company}</p>
-          <p className="mt-2 font-['Gilroy-Medium'] text-[15px] leading-relaxed text-[#636363]">
-            {office.companyAddress}
-          </p>
-        </div>
-        {office.taxLines.length > 0 ? (
-          <div className="font-['Gilroy-Medium'] text-[15px] leading-relaxed text-[#636363]">
-            {office.taxLines.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
-        ) : null}
-      </div>
-    </div>
+function BudgetPill({ label, selected, onSelect }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(label)}
+      className={`rounded-full px-4 py-2.5 font-['Gilroy-Medium'] text-[13px] leading-none transition md:text-[14px] ${
+        selected
+          ? 'bg-[#0A0A0A] text-white'
+          : 'bg-white text-[#0A0A0A] hover:bg-black/[0.04]'
+      }`}
+      aria-pressed={selected}
+    >
+      {label}
+    </button>
   )
 }
 
 export default function ContactPage() {
-  const office = contact.offices[0]
+  const [interests, setInterests] = useState(() => new Set(contact.defaultInterests))
+  const [budget, setBudget] = useState('')
+
+  const toggleInterest = (label, next) => {
+    setInterests((prev) => {
+      const nextSet = new Set(prev)
+      if (next) nextSet.add(label)
+      else nextSet.delete(label)
+      return nextSet
+    })
+  }
 
   return (
     <main className="bg-[#F5F5F5]">
@@ -189,7 +176,6 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1440px]">
           <ContactHero />
 
-          {/* nextio @ 1440: 671px contact info | 10px | 671px form — same row start */}
           <div className="mt-16 grid items-start gap-10 lg:mt-[120px] lg:grid-cols-2 lg:gap-1">
             <Reveal delay={60} className="w-full min-w-0">
               <div className="flex max-w-[671px] flex-col gap-8 md:gap-10">
@@ -203,7 +189,7 @@ export default function ContactPage() {
 
             <Reveal delay={80} className="w-full min-w-0 lg:flex lg:justify-end">
               <form
-                className="flex w-full max-w-[671px] flex-col gap-10"
+                className="flex w-full max-w-[671px] flex-col gap-8 md:gap-10"
                 onSubmit={(e) => {
                   e.preventDefault()
                 }}
@@ -230,16 +216,125 @@ export default function ContactPage() {
                     required
                     type="tel"
                     name="phone"
-                    placeholder="Phone Number *"
+                    placeholder="Phone number *"
                     className={fieldClass}
                   />
                 </FormField>
+
+                <div>
+                  <p className="mb-4 font-['Gilroy-Bold'] text-[12px] font-normal uppercase tracking-[0.04em] text-[#0A0A0A]">
+                    What are you interested in? *
+                  </p>
+                  <ul className="grid gap-3 sm:grid-cols-2">
+                    {contact.interests.map((label) => (
+                      <li key={label}>
+                        <InterestToggle
+                          label={label}
+                          checked={interests.has(label)}
+                          onChange={(next) => toggleInterest(label, next)}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                  <input
+                    type="hidden"
+                    name="interests"
+                    value={[...interests].join(', ')}
+                  />
+                </div>
+
+                <FormField>
+                  <select
+                    required
+                    name="industry"
+                    defaultValue=""
+                    className={selectClass}
+                    style={{ backgroundImage: selectChevron }}
+                  >
+                    <option value="" disabled>
+                      Industry / sector *
+                    </option>
+                    {contact.industries.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </FormField>
+
+                <FormField>
+                  <select
+                    required
+                    name="location"
+                    defaultValue=""
+                    className={selectClass}
+                    style={{ backgroundImage: selectChevron }}
+                  >
+                    <option value="" disabled>
+                      Where are you based? *
+                    </option>
+                    {contact.locations.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </FormField>
+
+                <FormField>
+                  <select
+                    required
+                    name="targetMarket"
+                    defaultValue=""
+                    className={selectClass}
+                    style={{ backgroundImage: selectChevron }}
+                  >
+                    <option value="" disabled>
+                      Target market *
+                    </option>
+                    {contact.targetMarkets.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </FormField>
+
+                <FormField>
+                  <input
+                    type="url"
+                    name="website"
+                    placeholder="Existing website URL (if any)"
+                    className={fieldClass}
+                  />
+                </FormField>
+
+                <div>
+                  <p className="mb-4 font-['Gilroy-Bold'] text-[12px] font-normal uppercase tracking-[0.04em] text-[#0A0A0A]">
+                    Estimated budget
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {contact.budgets.map((label) => (
+                      <BudgetPill
+                        key={label}
+                        label={label}
+                        selected={budget === label}
+                        onSelect={setBudget}
+                      />
+                    ))}
+                  </div>
+                  <input type="hidden" name="budget" value={budget} />
+                </div>
+
                 <FormField multiline>
+                  <label className="mb-3 block font-['Gilroy-Medium'] text-[14px] text-[#0A0A0A]/55">
+                    Your message
+                  </label>
                   <textarea
                     name="message"
-                    placeholder="Your message"
-                    rows={5}
-                    className={`${fieldClass} min-h-[140px] resize-none`}
+                    placeholder="Tell us more about your project"
+                    rows={4}
+                    className={`${fieldClass} min-h-[100px] resize-none`}
                   />
                 </FormField>
 
@@ -262,20 +357,6 @@ export default function ContactPage() {
               </form>
             </Reveal>
           </div>
-
-          <Reveal delay={40} y={60} className="mt-14 lg:mt-20">
-            <div className="grid gap-1 lg:grid-cols-2">
-              <OfficeCard office={office} />
-              <div className="overflow-hidden rounded-[20px]">
-                <img
-                  src={assets.contactOfficeMap}
-                  alt="Office location map"
-                  className="aspect-[674/486] h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
     </main>

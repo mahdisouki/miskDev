@@ -115,7 +115,7 @@ export default function Hero({ ready = true }) {
   const show = ready || reduce
 
   return (
-    <section className="relative h-[calc(100svh-72px)] min-h-[520px] overflow-hidden rounded-[20px] bg-black text-white md:h-[828px] md:min-h-0 md:max-h-[calc(100svh-72px)] md:rounded-[25px]">
+    <section className="relative h-[440px] overflow-hidden rounded-[20px] bg-black text-white md:h-auto md:min-h-[440px] md:rounded-[25px] md:aspect-[97/31]">
       <HeroBackground />
 
       {/* ——— Mobile layout ——— */}
@@ -161,7 +161,7 @@ export default function Hero({ ready = true }) {
       </div>
 
       {/* ——— Desktop layout (unchanged structure) ——— */}
-      <div className="relative z-10 hidden h-full w-full flex-col justify-between px-6 pt-8 pb-10 sm:px-10 md:flex md:px-10 md:pt-10 md:pb-20">
+      <div className="relative z-10 hidden h-full w-full flex-col justify-between px-6 pt-8 pb-10 sm:px-10 md:flex md:px-10 md:pt-10 md:pb-11">
         <div className="flex min-h-0 flex-1 flex-col justify-end overflow-visible pb-10 pl-0 md:pb-20 md:pl-[30px]">
           <motion.h1
             className="text-hero-gradient max-w-none overflow-visible font-['Gilroy-Medium'] text-[clamp(2.4rem,5.9vw,86px)] font-normal leading-[1.05] tracking-normal md:text-[86px] md:leading-[90px]"

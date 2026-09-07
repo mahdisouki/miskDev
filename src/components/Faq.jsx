@@ -1,34 +1,35 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
+import { EMAIL } from '../content/site'
 
 const faqs = [
   {
-    q: 'How quickly can we get started?',
-    a: 'We can usually start within days. For early-stage initiatives, we often deliver an MVP or validated prototype in ≤ 3 days, allowing fast validation of assumptions before larger investments. This helps reduce risk and accelerate decision-making early in the process.',
+    q: 'How much does it cost to build a website or web app?',
+    a: 'We don’t use fixed packages — every project is quoted based on your specific goals and scope. A landing page or automation tool can be ready in under a week. A full web application or SaaS platform typically takes 4–12 weeks. Share your brief and we’ll send a clear proposal with no surprises.',
   },
   {
-    q: 'How do you manage scope, budget, and delivery risk?',
-    a: 'We start by aligning on business goals, scope, and success metrics. Projects are delivered in clear phases, which allows early validation, controlled investment, and flexibility as priorities evolve.',
+    q: 'How long does custom web or app development take?',
+    a: 'Timelines depend on scope. A landing page or micro-tool takes 1–2 weeks. A full web app typically takes 4–12 weeks. Complex enterprise or AI-powered platforms can take 12+ weeks. We always give you a realistic timeline upfront — no vague estimates.',
   },
   {
-    q: 'Do you focus on MVPs or enterprise-grade systems?',
-    a: 'Both — depending on the business need. We help teams validate ideas quickly through MVPs and then evolve successful products into stable, scalable, enterprise-ready systems. MVPs are built with long-term architecture in mind.',
+    q: 'Do you work with small businesses, startups, and larger companies?',
+    a: 'Yes — we work with all of them. From solo founders validating a first idea to established companies building internal tools or customer-facing platforms. No minimum budget. If you have a clear goal, we’ll help you scope and build it.',
   },
   {
-    q: 'What happens after the product is launched?',
-    a: 'Launch is not the end of our involvement. We provide ongoing support, performance optimization, and feature development to ensure the product continues to deliver value as the business grows. Many of our clients continue with us long-term.',
+    q: 'What digital services does MISK MANAGERS offer?',
+    a: 'We offer web and app development, UI/UX design, social media management, and AI-powered solutions including automation, chatbots, and intelligent workflows. Full-stack from design to deployment — one team, not five vendors.',
   },
   {
-    q: 'How do you collaborate with internal teams and stakeholders?',
-    a: 'We work as an extension of your team. Our process is designed to integrate smoothly with internal product owners, management, and technical teams, ensuring clear ownership, transparency, and efficient delivery.',
+    q: 'What does your web development and design process look like?',
+    a: 'Discovery (understanding your goals) → Design (wireframes and UI) → Development (frontend and backend) → Testing and QA → Launch. After launch we stay available for support, iterations, and growth. You’re kept in the loop at every step.',
   },
   {
-    q: 'What type of companies do you typically work with?',
-    a: 'We work with startups, scale-ups, and established companies. The common factor is a focus on building digital products with long-term business value, not short-term experiments or one-off deliveries.',
+    q: 'Do you offer post-launch support and website maintenance?',
+    a: 'Yes. We offer ongoing maintenance, bug fixes, performance monitoring, and feature updates after launch. Many clients keep us on retainer for continuous improvements as their product grows.',
   },
   {
-    q: 'What’s the first step if we want to start a conversation?',
-    a: 'We begin with a short, focused discussion. The goal is to understand your business context, goals, constraints, and timeline. Based on that, we propose a clear next step — whether that’s MVP validation, product scoping, or full delivery.',
+    q: 'How do I get started — what happens after I reach out?',
+    a: `Send a message via the contact form or email ${EMAIL}. We reply within one business day to schedule a short discovery call. From there we send a custom proposal with scope, timeline, and next steps — no pressure, just clarity.`,
   },
 ]
 

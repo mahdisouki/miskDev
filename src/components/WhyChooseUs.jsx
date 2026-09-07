@@ -98,7 +98,7 @@ export default function WhyChooseUs() {
 
               <div className="absolute bottom-2 left-2 right-2 z-10 rounded-[10px] bg-black/70 p-5">
                 <p className="font-['Gilroy-Medium'] text-[13px] font-normal uppercase leading-none tracking-[0.02em] text-white">
-                  Heads of MISK
+                  Heads of MISK Managers
                   <sup className="ml-0.5 text-[8px] leading-none">®</sup>
                 </p>
                 <h3 className="mt-3 max-w-[279px] font-['Gilroy-Medium'] text-[18px] font-normal leading-[1.2] text-white">

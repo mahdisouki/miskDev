@@ -1,83 +1,73 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from 'motion/react'
 import { DualButton } from './Hero'
 import Reveal from './Reveal'
 import { assets } from '../content/assets'
 
 /**
- * nextio Services accordion @ 1440:
- * black plate r20 · open row: 01 · icon 150 · title 28 + body · pills · +/-
- * closed row ~66 · number + title 28
- * Framer uses separate open/closed panels with height + opacity crossfade
+ * Services accordion @ 1440 (Figma Updates):
+ * black plate · 4 rows · open: number · icon 150 · title + body · pills · +/-
+ * closed ~66 · number + title · +
  */
 const services = [
   {
-    title: 'Dedicated Product Teams',
-    body: 'We integrate into your team and take ownership of product delivery — from design to development. You get a reliable, long-term partner without the overhead of building and managing an internal team.',
+    title: 'Development',
+    body: 'We build scalable web and mobile products engineered for real business operations — clean architecture, reliable delivery, and systems that grow with you long after launch.',
     tagsLabel: 'Our services',
     tags: [
-      'Senior experts',
-      'End-to-end delivery',
-      'Agile delivery',
-      'Long-term partnership',
-      'Scalable execution',
-      'Cross-functional team',
+      'Web Apps',
+      'Mobile Apps',
+      'Backend Systems',
+      'APIs & Integrations',
+      'DevOps',
+      'Quality Assurance',
     ],
+    icon: 'development',
   },
   {
-    title: 'Strategy & Discovery',
-    body: 'We define what success looks like and what needs to be built to achieve it — so every decision is tied to real business outcomes.',
+    title: 'Design',
+    body: 'From brand identity to interactive prototypes, we craft experiences that convert. Every pixel is intentional — design systems, UI/UX, motion, and visual language that makes your product stand apart and stay remembered.',
     tagsLabel: 'Our services',
     tags: [
-      'Business & product analysis',
-      'User research',
-      'Market research',
-      'Product strategy',
-      'Product roadmap',
-      'MVP definition & validation',
+      'UI/UX Design',
+      'Brand Identity',
+      'Prototyping',
+      'Design Systems',
+      'Motion Design',
+      'User Research',
     ],
+    icon: 'design',
   },
   {
-    title: 'Design & Experience',
-    body: 'We design product experiences that are not just usable — but directly impact adoption, conversion, and retention.',
+    title: 'Social Media Management',
+    body: "We grow your presence across platforms with strategic content, community engagement, and data-driven campaigns. Your brand's voice stays consistent while we handle the day-to-day execution at scale.",
     tagsLabel: 'Our services',
     tags: [
-      'UI/UX design',
-      'Product design',
-      'Interaction design',
-      'Design systems',
-      'Prototyping & user testing',
+      'Content Strategy',
+      'Community Management',
+      'Analytics',
+      'Paid Ads',
+      'Influencer Marketing',
+      'Brand Voice',
     ],
+    icon: 'social',
   },
   {
-    title: 'Product Development',
-    body: 'We take ownership of development and delivery — building scalable systems that your business can rely on long-term.',
-    tagsLabel: 'Categories',
+    title: 'AI Solutions',
+    body: 'We integrate AI into your workflows and products — from intelligent chatbots and automation pipelines to custom machine learning models. We turn complexity into a competitive advantage you can ship.',
+    tagsLabel: 'Our services',
     tags: [
-      'Web app',
-      'Mobile app',
-      'AI solutions',
-      'AI automation',
-      'Backend systems',
-      'Integrations',
+      'Machine Learning',
+      'Automation',
+      'AI Chatbots',
+      'Data Analytics',
+      'NLP',
+      'Computer Vision',
     ],
-  },
-  {
-    title: 'Launch, Support & Growth',
-    body: 'We stay and continuously improve your product — handling development, optimization, and scaling as part of your team.',
-    tagsLabel: 'Categories',
-    tags: [
-      'Product launch',
-      'Monitoring',
-      'Maintenance',
-      'Ongoing support',
-      'Feature evolution',
-      'Performance optimization',
-    ],
+    icon: 'ai',
   },
 ]
 
-/** Framer-like accordion easing (smooth deceleration, ~550ms) */
 const accordionEase = [0.32, 0.72, 0, 1]
 
 function accordionTransition(reduce) {
@@ -90,7 +80,6 @@ function ToggleIcon({ open }) {
       className="relative flex size-[46px] shrink-0 items-center justify-center rounded-full border border-white/25"
       aria-hidden="true"
       initial={false}
-      animate={{ rotate: open ? 0 : 0 }}
     >
       <span className="block h-[2px] w-4 bg-white" />
       <motion.span
@@ -103,13 +92,30 @@ function ToggleIcon({ open }) {
   )
 }
 
-function ServiceIcon() {
+const iconGlow = {
+  design:
+    'radial-gradient(circle at 50% 48%, rgba(167,139,250,0.45) 0%, rgba(108,108,171,0.2) 38%, transparent 68%)',
+  social:
+    'radial-gradient(ellipse 70% 55% at 30% 70%, rgba(167,139,250,0.4) 0%, transparent 55%), radial-gradient(ellipse 55% 45% at 75% 25%, rgba(108,108,171,0.35) 0%, transparent 50%)',
+  ai: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(167,139,250,0.5) 0%, rgba(88,70,160,0.22) 40%, transparent 70%), radial-gradient(circle at 50% 42%, rgba(196,181,253,0.28) 0%, transparent 45%)',
+  development:
+    'radial-gradient(circle at 50% 50%, rgba(108,108,171,0.45) 0%, rgba(60,50,120,0.18) 45%, transparent 70%)',
+}
+
+function ServiceIcon({ type }) {
+  const src = assets.serviceIcons[type]
+
   return (
-    <div className="relative size-[72px] shrink-0 overflow-hidden rounded-[28px] bg-[#121212] md:size-[150px]">
+    <div className="relative size-[56px] shrink-0 overflow-hidden rounded-[18px] bg-[#0C0C0C] md:size-[104px] md:rounded-[22px]">
+      <div
+        className="service-icon-glow pointer-events-none absolute inset-0"
+        style={{ background: iconGlow[type] || iconGlow.development }}
+        aria-hidden="true"
+      />
       <motion.img
-        src={assets.peopleIcon}
+        src={src}
         alt=""
-        className="service-icon-glow h-full w-full object-cover"
+        className="relative z-10 h-full w-full object-contain p-3 md:p-5"
         loading="lazy"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -149,7 +155,7 @@ function ServiceRow({ service, index, open, onToggle, reduce }) {
               <div className="min-w-0 md:pr-8">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
                   <div className="flex min-w-0 flex-1 gap-5 sm:gap-6">
-                    <ServiceIcon />
+                    <ServiceIcon type={service.icon} />
                     <div className="min-w-0 max-w-[363px] pt-1">
                       <h3 className="font-['Gilroy-Medium'] text-[clamp(1.25rem,2vw,28px)] font-normal leading-[1.2] text-white md:leading-[33.6px]">
                         {service.title}
@@ -219,15 +225,18 @@ function ServiceRow({ service, index, open, onToggle, reduce }) {
 }
 
 export default function Services() {
-  const [openIndex, setOpenIndex] = useState(0)
+  const [openIndex, setOpenIndex] = useState(1)
   const reduce = useReducedMotion()
+
+  useEffect(() => {
+    if (window.location.hash === '#ai') {
+      setOpenIndex(3)
+    }
+  }, [])
 
   return (
     <section id="services" className="bg-[#F5F5F5] px-[6px] py-0">
-      <div
-        id="ai"
-        className="mx-auto overflow-hidden rounded-[20px] bg-black px-[10px] py-12 text-white md:px-[36px] md:py-20"
-      >
+      <div className="mx-auto overflow-hidden rounded-[20px] bg-black px-[10px] py-12 text-white md:px-[36px] md:py-20">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-1">
           <Reveal delay={40}>
             <p className="font-['Gilroy-Bold'] text-[16px] font-normal leading-[22.4px] text-white">
@@ -246,20 +255,21 @@ export default function Services() {
         <Reveal delay={20} y={48} className="mt-12 md:mt-16">
           <LayoutGroup id="services-accordion">
             {services.map((service, i) => (
-              <ServiceRow
-                key={service.title}
-                service={service}
-                index={i}
-                open={openIndex === i}
-                reduce={reduce}
-                onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
-              />
+              <div key={service.title} id={service.icon === 'ai' ? 'ai' : undefined}>
+                <ServiceRow
+                  service={service}
+                  index={i}
+                  open={openIndex === i}
+                  reduce={reduce}
+                  onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+                />
+              </div>
             ))}
           </LayoutGroup>
         </Reveal>
 
         <Reveal delay={40}>
-          <div className="mt-12 flex justify-center md:mt-16">
+          <div className="mt-12 flex justify-start md:mt-16">
             <DualButton href="/contact" variant="light">
               Discuss your project
             </DualButton>

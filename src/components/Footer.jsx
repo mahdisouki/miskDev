@@ -79,8 +79,27 @@ export default function Footer() {
                   <ul className="mt-4 flex flex-col gap-2.5 font-['Gilroy-Medium'] text-[16px] font-normal text-[#0A0A0A] md:text-[20px]">
                     {socialLinks.map((item) => (
                       <li key={item.label}>
-                        <a href={item.href} className="transition hover:opacity-55">
+                        <a
+                          href={item.href}
+                          className="inline-flex items-center gap-1.5 transition hover:opacity-55"
+                        >
                           {item.label}
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            aria-hidden="true"
+                            className="shrink-0 opacity-50"
+                          >
+                            <path
+                              d="M3.5 8.5 8.5 3.5M4 3.5h4.5V8"
+                              stroke="currentColor"
+                              strokeWidth="1.3"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
                         </a>
                       </li>
                     ))}
@@ -101,7 +120,7 @@ export default function Footer() {
 
       {/* Bottom legal */}
       <div className="flex flex-col gap-4 px-[10px] py-8 font-['Gilroy-Medium'] text-[14px] font-normal text-[#0A0A0A] md:flex-row md:items-center md:justify-between md:px-[36px] md:py-[42px]">
-        <p>© 2026 MISK MANAGERS®. All rights reserved.</p>
+        <p>© 2026 MISK MANAGERS® s.r.o. All rights reserved.</p>
         <div className="flex flex-wrap gap-[18px] md:gap-10">
           <a href="#" className="transition hover:opacity-55">
             Privacy Policy

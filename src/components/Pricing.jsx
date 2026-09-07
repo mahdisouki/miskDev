@@ -74,7 +74,8 @@ function DeliveryProgress({ time, progress, delay = 0 }) {
 const plans = [
   {
     name: 'MVP & Validation',
-    price: '€5 000 - €15 000',
+    headline: 'Start small.',
+    scopeNote: 'Custom quote on request',
     time: '3+ Weeks',
     progress: 0.14,
     body: 'Simple internal tools and small MVPs, usually to validate an idea or digitize simple process. Includes usually up to 5 core functionalities and 1-2 integrations',
@@ -89,7 +90,8 @@ const plans = [
   },
   {
     name: 'Product Build',
-    price: '€25 000 - €50 000',
+    headline: 'Build it right.',
+    scopeNote: 'Custom quote on request',
     time: '12+ Weeks',
     progress: 0.52,
     body: 'Production-ready digital products built for real users and real business operations.',
@@ -104,7 +106,8 @@ const plans = [
   },
   {
     name: 'Deeply complex',
-    price: '€75 000+',
+    headline: 'Go all in.',
+    scopeNote: 'Custom quote on request',
     time: '4+ Months',
     progress: 0.9,
     body: 'Complex digital systems designed for scale, performance, and long-term growth.',
@@ -120,9 +123,9 @@ const plans = [
 ]
 
 /**
- * nextio Pricing @ 1440:
- * black plate r20 · / Pricing framework · Pricing 86 · dual desc 30
- * each plan row: left 330 name/body · right 999 price/list/delivery/CTA · gap 4 · pad 50 · r18
+ * How we engage @ 1440:
+ * black plate r20 · / How we engage · “Every project welcome” 70 · lead 22 + side note
+ * each plan row: left 330 name/body · right 999 headline/list/delivery/CTA · gap 4 · pad 50 · r18
  */
 export default function Pricing() {
   return (
@@ -134,24 +137,31 @@ export default function Pricing() {
             <p className="font-['Gilroy-Bold'] text-[16px] font-normal leading-[22.4px] text-white">
               <span className="font-['Gilroy-Regular'] text-white/55">/</span>
               {' '}
-              Pricing framework
+              How we engage
             </p>
           </Reveal>
 
           <Reveal delay={40} className="md:col-span-3 md:col-start-2">
-            <div className="max-w-[999px]">
-              <h2 className="text-services-gradient font-['Gilroy-Medium'] text-[clamp(3rem,8vw,86px)] font-normal leading-[1.15] tracking-[-0.02em] md:leading-[98.9px]">
-                Pricing
+            <div className="max-w-[1052px]">
+              <h2 className="font-['Gilroy-Medium'] text-[clamp(2.25rem,5.6vw,70px)] font-normal leading-[1.15] tracking-[-0.02em]">
+                <span className="text-[#8B8BB8]">Every project </span>
+                <span className="text-white">welcome</span>
               </h2>
-              <p className="mt-4 max-w-[720px] font-['Gilroy-Medium'] text-[clamp(1.15rem,2.2vw,30px)] font-normal leading-[1.25]">
-                <span className="text-white">Transparent project </span>
-                <span className="text-[#6E6E6E]">
-                  ranges aligned with real business needs.
-                </span>
-              </p>
-              <p className="mt-4 max-w-[520px] font-['Gilroy-Regular'] text-[16px] font-normal leading-snug text-[#636363]">
-                These ranges reflect the most common project scopes we deliver.
-              </p>
+
+              <div className="mt-8 grid gap-6 md:grid-cols-3 md:gap-8">
+                <div className="md:col-span-2">
+                  <p className="max-w-[620px] font-['Gilroy-Bold'] text-[clamp(1.1rem,1.8vw,22px)] font-normal leading-[1.35] text-white">
+                    We work with companies of all sizes.
+                  </p>
+                  <p className="max-w-[620px] font-['Gilroy-Medium'] text-[clamp(1.1rem,1.8vw,22px)] font-normal leading-[1.35] text-[#6E6E6E]">
+                    Tell us what you need and we scope it together.
+                  </p>
+                </div>
+                <p className="max-w-[360px] font-['Gilroy-Regular'] text-[14px] font-normal leading-[1.5] text-white/55">
+                  No minimum budget. No fixed packages. Every system is built around your specific
+                  goals.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -177,17 +187,17 @@ export default function Pricing() {
                     </p>
                   </div>
 
-                  {/* Right — price, features, delivery bar, CTA */}
+                  {/* Right — headline, features, delivery bar, CTA */}
                   <div
                     className={`flex flex-col justify-between rounded-[18px] p-5 md:min-h-[408px] md:p-[50px] ${panel}`}
                   >
                     <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
                       <div>
-                        <p className="font-['Gilroy-Medium'] text-[clamp(1.5rem,2.5vw,30px)] font-normal leading-none text-white">
-                          {plan.price}
+                        <p className="font-['Gilroy-Bold'] text-[clamp(1.5rem,2.5vw,30px)] font-normal leading-none text-white">
+                          {plan.headline}
                         </p>
-                        <p className="mt-2 font-['Gilroy-Regular'] text-[16px] text-white/50">
-                          <span className="text-white/40">/</span> project
+                        <p className="mt-3 font-['Gilroy-Regular'] text-[14px] leading-snug text-white/45">
+                          {plan.scopeNote}
                         </p>
                       </div>
                       <ul className="flex flex-col gap-[6px]">

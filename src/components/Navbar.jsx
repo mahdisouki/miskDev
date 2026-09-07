@@ -130,7 +130,6 @@ function MobileMenu({ open, onClose }) {
       label: link.label,
       badge: link.badge,
     })),
-    { key: 'Request demo', to: '/request-demo', label: 'Request demo' },
     { key: 'Contact us', to: '/contact', label: 'Contact us' },
   ]
 
@@ -311,13 +310,6 @@ export default function Navbar({ ready = true }) {
               animate={show ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5, delay: show ? 0.32 : 0, ease }}
             >
-              <Link
-                to="/request-demo"
-                className="hidden h-[30px] items-center rounded-full bg-[#6C6CAB] px-3.5 font-['Gilroy-Bold'] text-[12px] font-normal leading-3 text-white transition hover:bg-[#5B5B96] min-[1100px]:inline-flex"
-              >
-                Request demo
-              </Link>
-
               <motion.div
                 initial="rest"
                 whileHover="hover"

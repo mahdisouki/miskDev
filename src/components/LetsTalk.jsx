@@ -213,7 +213,7 @@ export default function LetsTalk() {
                   <div className="flex min-w-0 flex-1 flex-col justify-between rounded-[16px] bg-white/15 p-6 backdrop-blur-[5px] sm:max-w-[335px]">
                     <div>
                       <p className="font-['Gilroy-Medium'] text-[14px] font-normal leading-[15.4px] text-white">
-                        Heads of MISK
+                        Heads of MISK Managers
                         <sup className="ml-0.5 text-[9px]">®</sup>
                       </p>
                       <p className="mt-2 max-w-[287px] font-['Gilroy-Bold'] text-[18px] font-normal leading-[19.8px] text-white">
