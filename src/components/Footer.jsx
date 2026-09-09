@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom'
-import { contact, EMAIL, footerNav, socialLinks } from '../content/site'
+import { contact, EMAIL, footerNav, LOGO_MONO_URL, socialLinks } from '../content/site'
 import { assets } from '../content/assets'
 import { leadIndent } from './typography'
-
-const FOOTER_LOGO_URL =
-  'https://res.cloudinary.com/wntdlk90/image/upload/v1786088513/Misk_Managers_2_1_ua8shy.png'
 
 /**
  * nextio Footer @ 1440:
@@ -108,9 +105,9 @@ export default function Footer() {
               </div>
 
               <img
-                src={FOOTER_LOGO_URL}
+                src={LOGO_MONO_URL}
                 alt="MISK MANAGERS"
-                className="h-12 w-auto max-w-full object-contain object-left brightness-0 md:h-[100px] lg:h-[111px]"
+                className="h-12 w-auto max-w-full object-contain object-left md:h-[100px] lg:h-[111px]"
                 height={111}
               />
             </div>

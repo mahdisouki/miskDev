@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-
-const INTRO_LOGO_URL =
-  'https://res.cloudinary.com/wntdlk90/image/upload/v1786088513/Misk_Managers_2_1_ua8shy.png'
+import { LOGO_MONO_URL } from '../content/site'
 
 const ease = [0.76, 0, 0.24, 1]
 const soft = [0.22, 1, 0.36, 1]
@@ -43,7 +41,7 @@ export default function PageIntro({ onDone }) {
         transition={{ duration: 0.9, ease: soft, delay: 0.08 }}
       >
         <img
-          src={INTRO_LOGO_URL}
+          src={LOGO_MONO_URL}
           alt="MISK MANAGERS"
           className="h-[28px] w-auto object-contain brightness-0 invert sm:h-[34px] md:h-[42px]"
           width={240}

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import Reveal from './Reveal'
 import { assets } from '../content/assets'
-import { LOGO_URL } from '../content/site'
+import { contact, LOGO_MONO_URL } from '../content/site'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -55,7 +55,16 @@ function Field({ label, children }) {
 }
 
 const fieldClass =
-  "h-[52px] w-full rounded-[10px] border-0 bg-[#F5F5F5] px-4 font-['Gilroy-Medium'] text-[16px] font-normal text-[#0A0A0A] outline-none placeholder:text-[#0A0A0A]/35 md:h-[58px] md:text-[18px]"
+  "h-[52px] w-full rounded-[10px] border-0 bg-[#F5F5F5] px-4 font-['Gilroy-Medium'] text-[15px] font-normal text-[#0A0A0A] outline-none placeholder:text-[#0A0A0A]/35"
+
+const selectClass =
+  `${fieldClass} appearance-none bg-[length:11px] bg-[right_1rem_center] bg-no-repeat pr-9`
+
+const selectChevron =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%230A0A0A' stroke-opacity='0.45' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")"
+
+const textareaClass =
+  "min-h-[104px] w-full resize-none rounded-[10px] border-0 bg-[#F5F5F5] px-4 py-3 font-['Gilroy-Medium'] text-[15px] font-normal leading-snug text-[#0A0A0A] outline-none placeholder:text-[#0A0A0A]/35"
 
 /**
  * nextio Let’s talk @ 1440:
@@ -69,18 +78,21 @@ export default function LetsTalk() {
         <div className="relative mx-auto overflow-hidden rounded-[20px] bg-black px-4 py-10 md:px-8 md:py-14 lg:min-h-[758px]">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-1 lg:items-stretch">
             {/* Form */}
-            <div className="flex lg:items-start">
+            <div className="flex flex-col lg:items-start">
               <div className="flex w-full max-w-[506px] flex-col gap-[30px] rounded-[18px] bg-white p-8 md:p-10">
                 <div className="flex flex-col gap-3">
                   <img
-                    src={LOGO_URL}
+                    src={LOGO_MONO_URL}
                     alt="MISK MANAGERS"
                     className="h-[22px] w-auto object-contain object-left"
                     height={22}
                   />
-                  <h3 className="max-w-[426px] font-['Gilroy-Medium'] text-[clamp(1.5rem,2.5vw,30px)] font-normal leading-9 text-[#0A0A0A]">
-                    No commitment. Just a focused discussion.
+                  <h3 className="max-w-[426px] font-['Gilroy-Bold'] text-[clamp(1.375rem,2.1vw,26px)] font-normal leading-[1.2] text-[#0A0A0A]">
+                    Request a quote — tell us about your project.
                   </h3>
+                  <p className="max-w-[426px] font-['Gilroy-Regular'] text-[13px] font-normal leading-snug text-[#0A0A0A]/55">
+                    We reply within one business day with a clear proposal and next steps.
+                  </p>
                 </div>
 
                 <form
@@ -89,8 +101,8 @@ export default function LetsTalk() {
                     e.preventDefault()
                   }}
                 >
-                  <div className="flex flex-col gap-4">
-                    <Field label="Your name*">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Field label="Full name*">
                       <input
                         required
                         name="name"
@@ -98,23 +110,84 @@ export default function LetsTalk() {
                         className={fieldClass}
                       />
                     </Field>
-                    <Field label="E-mail*">
+                    <Field label="Company / Organisation">
+                      <input
+                        name="company"
+                        placeholder="Acme Inc."
+                        className={fieldClass}
+                      />
+                    </Field>
+                    <Field label="Work e-mail*">
                       <input
                         required
                         type="email"
                         name="email"
-                        placeholder="hello@site.com"
+                        placeholder="you@company.com"
                         className={fieldClass}
                       />
                     </Field>
-                    <Field label="Message">
+                    <Field label="Phone / WhatsApp">
                       <input
-                        name="message"
-                        placeholder="Your message"
+                        type="tel"
+                        name="phone"
+                        placeholder="+1 555 000 0000"
                         className={fieldClass}
                       />
+                    </Field>
+                    <Field label="Service needed*">
+                      <select
+                        required
+                        name="service"
+                        defaultValue=""
+                        className={selectClass}
+                        style={{ backgroundImage: selectChevron }}
+                      >
+                        <option value="" disabled>
+                          Select a service…
+                        </option>
+                        {contact.serviceOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </Field>
+                    <Field label="Estimated budget">
+                      <select
+                        name="budget"
+                        defaultValue=""
+                        className={selectClass}
+                        style={{ backgroundImage: selectChevron }}
+                      >
+                        <option value="" disabled>
+                          Select a range…
+                        </option>
+                        {contact.budgets.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
                     </Field>
                   </div>
+
+                  <Field label="Decision timeline">
+                    <input
+                      name="timeline"
+                      placeholder="When do you need this?"
+                      className={fieldClass}
+                    />
+                  </Field>
+
+                  <Field label="Tell us about your project*">
+                    <textarea
+                      required
+                      name="brief"
+                      rows={4}
+                      placeholder="Describe what you want to build, the problem it solves, and any relevant context — existing systems, tech stack, or constraints."
+                      className={textareaClass}
+                    />
+                  </Field>
 
                   <label className="flex items-center gap-2.5 font-['Gilroy-Medium'] text-[12px] font-normal text-[#888888]">
                     <input
@@ -137,12 +210,16 @@ export default function LetsTalk() {
 
                   <button
                     type="submit"
-                    className="inline-flex h-[52px] w-full items-center justify-center overflow-hidden rounded-full bg-[#0A0A0A] font-['Gilroy-Medium'] text-[16px] font-normal text-white transition hover:opacity-90 md:h-[58px] md:text-[18px]"
+                    className="inline-flex h-[52px] w-full items-center justify-center overflow-hidden rounded-full bg-[#0A0A0A] font-['Gilroy-Bold'] text-[15px] font-normal text-white transition hover:opacity-90 md:h-[56px] md:text-[16px]"
                   >
-                    Send Message
+                    Send Request
                   </button>
                 </form>
               </div>
+
+              <p className="mt-6 w-full max-w-[506px] font-['Gilroy-Medium'] text-[12px] font-normal text-white/45">
+                © 2026 MISK MANAGERS® s.r.o.
+              </p>
             </div>
 
             {/* Pitch */}

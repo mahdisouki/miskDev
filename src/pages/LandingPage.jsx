@@ -32,7 +32,7 @@ export default function LandingPage() {
       >
         <Hero ready={introDone} />
       </motion.div>
-      <div className={`mt-[50px] flex flex-col ${SECTION_GAP} md:mt-[140px]`}>
+      <div className={`mt-[32px] flex flex-col ${SECTION_GAP} md:mt-[80px]`}>
         <Clients />
         <Services />
         <AboutUs />

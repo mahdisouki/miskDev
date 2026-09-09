@@ -12,15 +12,15 @@ import { assets } from '../content/assets'
 const services = [
   {
     title: 'Development',
-    body: 'We build scalable web and mobile products engineered for real business operations — clean architecture, reliable delivery, and systems that grow with you long after launch.',
+    body: 'We build robust, scalable web and mobile applications from MVPs to enterprise platforms. Full-stack development with modern tech stacks, clean architecture, and a process that keeps your team in the loop at every step.',
     tagsLabel: 'Our services',
     tags: [
-      'Web Apps',
-      'Mobile Apps',
-      'Backend Systems',
-      'APIs & Integrations',
-      'DevOps',
-      'Quality Assurance',
+      'Web & Mobile Apps',
+      'API Integration',
+      'Cloud Infrastructure',
+      'Agile Delivery',
+      'Full-stack',
+      'Scalable Architecture',
     ],
     icon: 'development',
   },

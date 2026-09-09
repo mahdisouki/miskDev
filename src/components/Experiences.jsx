@@ -10,7 +10,7 @@ import {
 import Reveal from './Reveal'
 import { leadIndent } from './typography'
 import { assets, testimonials } from '../content/assets'
-import { LOGO_URL } from '../content/site'
+import { LOGO_MONO_URL } from '../content/site'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -54,6 +54,41 @@ function ContactPill() {
         </span>
       </Link>
     </motion.div>
+  )
+}
+
+/** Author strip — its own card, above the quote (below it on the inverted column) */
+function PersonCard({ testimonial }) {
+  return (
+    <div className="flex items-center gap-4 rounded-[18px] bg-white p-5 sm:px-7 sm:py-6">
+      <img
+        src={testimonial.avatar}
+        alt={testimonial.name}
+        className="size-[46px] shrink-0 rounded-[12px] object-cover"
+        width={46}
+        height={46}
+        loading="lazy"
+      />
+      <div>
+        <h3 className="font-['Gilroy-Bold'] text-[16px] font-normal text-[#0A0A0A]">
+          {testimonial.name}
+        </h3>
+        <p className="mt-1 font-['Gilroy-Regular'] text-[13px] text-[#0A0A0A]/55">
+          {testimonial.role.replace('—', '-')}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function ReadMore() {
+  return (
+    <Link
+      to="/about-us"
+      className="inline-flex h-[31px] w-fit items-center rounded-full border border-black/10 px-4 font-['Gilroy-Medium'] text-[13px] text-[#0A0A0A] transition hover:bg-black/[0.03]"
+    >
+      Read more
+    </Link>
   )
 }
 
@@ -124,50 +159,50 @@ export default function Experiences() {
             <h2 className="font-['Gilroy-Medium'] text-[clamp(3rem,8vw,86px)] font-normal leading-[1.15] tracking-[-0.02em] text-[#0A0A0A] md:leading-[98.9px]">
               Experiences
             </h2>
+            <p className="mt-4 font-['Gilroy-Bold'] text-[16px] font-normal leading-none text-[#0A0A0A] md:mt-5">
+              ©2021–2026
+            </p>
           </Reveal>
         </div>
 
         <Reveal delay={20} y={170} className="mt-10 md:mt-12">
-          <div className="grid gap-1 lg:grid-cols-4 lg:items-stretch">
+          <div className="grid gap-1 lg:min-h-[630px] lg:grid-cols-4 lg:items-stretch">
             {/* Intro column */}
             <div className="flex h-full flex-col rounded-[18px] bg-white p-5 sm:p-7">
-              <p className="font-['Gilroy-Medium'] text-[28px] font-normal leading-none text-[#0A0A0A] sm:text-[40px]">
-                4.9
-                <span className="font-['Gilroy-Regular'] text-[18px] text-[#0A0A0A]/45">/5</span>
-              </p>
-              <p className="mt-4 max-w-[275px] font-['Gilroy-Regular'] text-[16px] font-normal leading-snug text-[#0A0A0A]/70">
-                We’ve successfully delivered over 56+ projects that drive measurable business
-                results.
-              </p>
+              <div className="flex items-start gap-5">
+                <p className="shrink-0 font-['Gilroy-Medium'] text-[32px] font-normal leading-none text-[#0A0A0A] sm:text-[44px]">
+                  4.9
+                  <span className="font-['Gilroy-Regular'] text-[18px] text-[#0A0A0A]/45">/5</span>
+                </p>
+                <p className="font-['Gilroy-Regular'] text-[15px] font-normal leading-snug text-[#0A0A0A]/70">
+                  We’ve successfully delivered over{' '}
+                  <span className="font-['Gilroy-Bold'] text-[#0A0A0A]">56+ projects</span>
+                  {' '}
+                  that drive measurable business results.
+                </p>
+              </div>
 
               <div className="mt-auto pt-8">
-                <div className="mb-3 flex flex-col items-start gap-2">
-                  <img
-                    src={LOGO_URL}
-                    alt="MISK"
-                    className="h-[22px] w-auto shrink-0 object-contain object-left"
-                    height={22}
-                    loading="lazy"
-                  />
-                  <img
-                    src={assets.ratings}
-                    alt=""
-                    className="h-[22px] w-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex items-end gap-3">
-                  <p className="font-['Gilroy-Medium'] text-[20px] font-normal leading-none text-[#0A0A0A]">
-                    39+
+                <img
+                  src={LOGO_MONO_URL}
+                  alt="MISK MANAGERS"
+                  className="h-[26px] w-auto shrink-0 object-contain object-left"
+                  height={26}
+                  loading="lazy"
+                />
+                <img
+                  src={assets.ratings}
+                  alt=""
+                  className="mt-4 h-[22px] w-auto object-contain"
+                  loading="lazy"
+                />
+                <div className="mt-3">
+                  <Stars />
+                  <p className="mt-2 font-['Gilroy-Regular'] text-[13px] leading-snug text-[#0A0A0A]/55">
+                    <span className="font-['Gilroy-Bold'] text-[#0A0A0A]">Trusted by</span>
+                    {' '}
+                    clients worldwide
                   </p>
-                  <div>
-                    <Stars />
-                    <p className="mt-1 font-['Gilroy-Regular'] text-[13px] leading-snug text-[#0A0A0A]/65">
-                      Trusted by
-                      <br />
-                      clients worldwide
-                    </p>
-                  </div>
                 </div>
                 <div className="mt-6">
                   <ContactPill />
@@ -175,46 +210,45 @@ export default function Experiences() {
               </div>
             </div>
 
-            {/* Testimonials */}
-            {testimonials.map((t) => (
-              <article
-                key={t.name}
-                className="flex h-full flex-col rounded-[18px] bg-white p-5 sm:p-7"
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="size-[46px] rounded-[12px] object-cover"
-                    width={46}
-                    height={46}
-                    loading="lazy"
-                  />
-                  <div>
-                    <h3 className="font-['Gilroy-Bold'] text-[16px] font-normal text-[#0A0A0A]">
-                      {t.name}
-                    </h3>
-                    <p className="mt-1 font-['Gilroy-Regular'] text-[13px] text-[#0A0A0A]/55">
-                      {t.role.replace('—', '-')}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <Stars />
-                </div>
-                <p className={`mt-5 font-['Gilroy-Regular'] text-[16px] font-normal leading-[1.45] text-[#0A0A0A]/75 ${leadIndent}`}>
+            {/* Testimonials — author card + quote card, middle column mirrored */}
+            {testimonials.map((t, i) => {
+              const mirrored = i % 2 === 1
+              const quote = (
+                <p className={`font-['Gilroy-Bold'] text-[18px] font-normal leading-[1.45] text-[#0A0A0A] ${leadIndent}`}>
                   {t.quote}
                 </p>
-                <div className="mt-auto pt-8">
-                  <Link
-                    to="/about-us"
-                    className="inline-flex h-[31px] w-fit items-center rounded-full border border-black/10 px-4 font-['Gilroy-Medium'] text-[13px] text-[#0A0A0A] transition hover:bg-black/[0.03]"
-                  >
-                    Read more
-                  </Link>
+              )
+
+              return (
+                <div key={t.name} className="flex h-full flex-col gap-1">
+                  {!mirrored && <PersonCard testimonial={t} />}
+
+                  <article className="flex flex-1 flex-col rounded-[18px] bg-white p-5 sm:p-7">
+                    {mirrored ? (
+                      <>
+                        {quote}
+                        <div className="mt-5">
+                          <ReadMore />
+                        </div>
+                        <div className="mt-auto pt-10">
+                          <Stars />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <Stars />
+                        <div className="mt-auto pt-10">{quote}</div>
+                        <div className="mt-5">
+                          <ReadMore />
+                        </div>
+                      </>
+                    )}
+                  </article>
+
+                  {mirrored && <PersonCard testimonial={t} />}
                 </div>
-              </article>
-            ))}
+              )
+            })}
           </div>
         </Reveal>
 

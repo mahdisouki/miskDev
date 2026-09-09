@@ -20,7 +20,7 @@ export default function Projects() {
         </Reveal>
 
         <Reveal delay={40}>
-          <h2 className="mx-auto mb-10 max-w-[674px] text-left font-['Gilroy-Medium'] text-[clamp(1.75rem,3.2vw,46px)] font-normal leading-[1.1] sm:mb-14 md:text-[46px] md:leading-[50.6px]">
+          <h2 className="mx-auto mb-10 max-w-[674px] text-left font-['Gilroy-Bold'] text-[clamp(1.75rem,3.2vw,46px)] font-normal leading-[1.1] tracking-normal sm:mb-14 md:text-[46px] md:leading-[50.6px]">
             <span className="text-[#090909]">Custom software with real business impact </span>
             <span className="text-[#636363]">
               for startups, scale-ups and established companies.

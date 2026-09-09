@@ -3,7 +3,6 @@ import { motion } from 'motion/react'
 import Reveal from './Reveal'
 import { leadIndent } from './typography'
 import { assets } from '../content/assets'
-import { LOGO_URL } from '../content/site'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -45,8 +44,8 @@ function MiniDualCta({ to, children }) {
 }
 
 /**
- * nextio Team — after Pricing
- * “The team behind” #090909 + “digital products.” #636363 · 52px
+ * Team — after Pricing
+ * “The team behind your” #090909 + “digital products.” #636363 · 52px
  */
 export default function TeamBehind() {
   return (
@@ -59,15 +58,12 @@ export default function TeamBehind() {
           <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,444px)]">
             <div className="flex flex-col justify-between gap-8 p-6 sm:p-10 md:p-14 lg:min-h-[699px]">
               <div>
-                <img
-                  src={LOGO_URL}
-                  alt="MISK MANAGERS"
-                  className="mb-5 h-[32px] w-auto object-contain object-left"
-                  height={32}
-                />
-                <h2 className="max-w-[739px] font-['Gilroy-Medium'] text-[clamp(2rem,4vw,52px)] font-normal leading-[1.1]">
-                  <span className="text-[#090909]">The team behind your </span>
-                  <span className="text-[#636363]">digital products.</span>
+                <h2 className="max-w-[739px] font-['Gilroy-Bold'] text-[clamp(2rem,4vw,52px)] font-normal leading-[1.1] tracking-normal">
+                  <span className="block text-[#090909]">The team behind</span>
+                  <span className="block">
+                    <span className="text-[#090909]">your </span>
+                    <span className="text-[#636363]">digital products.</span>
+                  </span>
                 </h2>
               </div>
 
@@ -85,8 +81,13 @@ export default function TeamBehind() {
                   </div>
                 </div>
                 <p className={`max-w-[367px] font-['Gilroy-Regular'] text-[16px] font-normal leading-snug text-[#0A0A0A]/70 ${leadIndent}`}>
-                  Our multidisciplinary teams collaborate closely to deliver digital products that
-                  meet business goals, timelines, and quality standards.
+                  Our multidisciplinary teams collaborate closely
+                  {' '}
+                  <span className="font-['Gilroy-Bold'] text-[#0A0A0A]">
+                    to deliver digital products that meet business goals,
+                  </span>
+                  {' '}
+                  timelines, and quality standards.
                 </p>
               </div>
             </div>
@@ -95,7 +96,7 @@ export default function TeamBehind() {
               <img
                 src={assets.developers}
                 alt="MISK MANAGERS team"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] rounded-[14px] object-cover"
                 loading="lazy"
               />
             </div>

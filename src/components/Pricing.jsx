@@ -84,7 +84,7 @@ const plans = [
       'MVP prototype (core features only)',
       'Market & user assumptions validation',
       'Clear next-step roadmap',
-      'Final scope and pricing depend on product requirements.',
+      'Every project is scoped fresh — let’s talk',
     ],
     tone: 'strong',
   },
@@ -100,7 +100,7 @@ const plans = [
       'Core feature development',
       'Integrations & system logic',
       'Quality assurance & deployment',
-      'Final scope and pricing depend on product requirements.',
+      'Every project is scoped fresh — let’s talk',
     ],
     tone: 'soft',
   },
@@ -116,7 +116,7 @@ const plans = [
       'Advanced integrations & workflows',
       'Security, performance & scalability',
       'Long-term support & evolution',
-      'Final scope and pricing depend on product requirements.',
+      'Every project is scoped fresh — let’s talk',
     ],
     tone: 'soft',
   },
@@ -158,7 +158,7 @@ export default function Pricing() {
                   </p>
                 </div>
                 <p className="max-w-[360px] font-['Gilroy-Regular'] text-[14px] font-normal leading-[1.5] text-white/55">
-                  No minimum budget. No fixed packages. Every system is built around your specific
+                  No minimum budget. No fixed packages. Every quote is built around your specific
                   goals.
                 </p>
               </div>
@@ -195,9 +195,9 @@ export default function Pricing() {
                       <div>
                         <p className="font-['Gilroy-Bold'] text-[clamp(1.5rem,2.5vw,30px)] font-normal leading-none text-white">
                           {plan.headline}
-                        </p>
-                        <p className="mt-3 font-['Gilroy-Regular'] text-[14px] leading-snug text-white/45">
-                          {plan.scopeNote}
+                          <span className="ml-3 font-['Gilroy-Regular'] text-[14px] leading-snug text-white/45">
+                            {plan.scopeNote}
+                          </span>
                         </p>
                       </div>
                       <ul className="flex flex-col gap-[6px]">
@@ -237,9 +237,13 @@ export default function Pricing() {
               Our approach
             </p>
             <div className="md:col-span-3 md:col-start-2">
-              <p className={`max-w-[720px] font-['Gilroy-Medium'] text-[clamp(1.15rem,2vw,26px)] font-normal leading-snug text-white ${leadIndent}`}>
-                Software is only a tool. Our focus is building digital products that support real
-                business growth.
+              <p className="max-w-[720px] font-['Gilroy-Medium'] text-[clamp(1.15rem,2vw,26px)] font-normal leading-snug">
+                <span className={`block text-white/45 ${leadIndent}`}>
+                  Software is only a tool.
+                </span>
+                <span className="block indent-0 text-white">
+                  Our focus is building digital products that support real business growth.
+                </span>
               </p>
               <div className="mt-8 flex items-center gap-4">
                 <img

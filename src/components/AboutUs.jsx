@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import Reveal from './Reveal'
 import { assets } from '../content/assets'
-import { LOGO_URL } from '../content/site'
+import { LOGO_MONO_URL } from '../content/site'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -93,7 +93,7 @@ export default function AboutUs() {
               aria-hidden="true"
             />
 
-            <h3 className="relative z-10 max-w-[1240px] font-['Gilroy-Medium'] text-[clamp(1.5rem,4vw,52px)] font-normal leading-[1.15]">
+            <h3 className="relative z-10 max-w-[1240px] font-['Gilroy-Bold'] text-[clamp(1.5rem,3.55vw,51.1px)] font-normal leading-[1.175] tracking-normal md:text-[51.1px] md:leading-[60px]">
               <span className="block text-[#8B8BB8]">You&apos;re not paying for time.</span>
               <span className="block text-[#B8B8DA]">
                 You&apos;re investing in results that grow your business.
@@ -116,20 +116,20 @@ export default function AboutUs() {
           </Reveal>
 
           <Reveal delay={40} className="md:col-span-3 md:col-start-2">
-            <div className="max-w-[890px]">
+            <div className="max-w-[913px]">
               <img
-                src={LOGO_URL}
+                src={LOGO_MONO_URL}
                 alt="MISK MANAGERS"
                 className="mb-5 h-[32px] w-auto object-contain object-left"
                 height={32}
               />
-              <h2 className="font-['Gilroy-Medium'] text-[clamp(1.75rem,3.2vw,46px)] font-normal leading-[1.1] md:text-[46px] md:leading-[50.6px]">
+              <h2 className="font-['Gilroy-Bold'] text-[clamp(1.75rem,3.18vw,45.8px)] font-normal leading-[1.105] tracking-normal md:text-[45.8px] md:leading-[50.6px]">
                 <span className="block text-[#090909]">Senior-led teams, No middlemen.</span>
                 <span className="block text-[#636363]">
                   Products clients bet their business on.
                 </span>
               </h2>
-              <p className="mt-6 max-w-[890px] font-['Gilroy-Bold'] text-[16px] font-normal leading-[1.5] text-[#0A0A0A]">
+              <p className="mt-6 max-w-[913px] font-['Gilroy-Bold'] text-[clamp(1.05rem,1.57vw,22.6px)] font-normal leading-[0.99] tracking-normal text-[#0A0A0A]/60 md:text-[22.6px] md:leading-[22.4px]">
                 No hand-offs to juniors. No bloated timelines. Every project is owned end-to-end by
                 the same senior team that scoped it
               </p>

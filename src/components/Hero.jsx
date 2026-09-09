@@ -138,7 +138,7 @@ export default function Hero({ ready = true }) {
           animate={{ opacity: show ? 1 : 0 }}
           transition={{ duration: 0.85, delay: show ? 0.1 : 0, ease }}
         >
-          <h1 className="text-hero-gradient max-w-[330px] font-['Gilroy-Medium'] text-[40px] font-normal leading-[45px] tracking-normal">
+          <h1 className="text-hero-gradient max-w-[330px] font-['Gilroy-Bold'] text-[40px] font-normal leading-[45px] tracking-normal">
             Build and grow
             <br />
             digital products
@@ -164,7 +164,7 @@ export default function Hero({ ready = true }) {
       <div className="relative z-10 hidden h-full w-full flex-col justify-between px-6 pt-8 pb-10 sm:px-10 md:flex md:px-10 md:pt-10 md:pb-11">
         <div className="flex min-h-0 flex-1 flex-col justify-end overflow-visible pb-10 pl-0 md:pb-20 md:pl-[30px]">
           <motion.h1
-            className="text-hero-gradient max-w-none overflow-visible font-['Gilroy-Medium'] text-[clamp(2.4rem,5.9vw,86px)] font-normal leading-[1.05] tracking-normal md:text-[86px] md:leading-[90px]"
+            className="text-hero-gradient max-w-none overflow-visible font-['Gilroy-Bold'] text-[clamp(2.4rem,5.88vw,84.7px)] font-normal leading-[1.015] tracking-normal md:text-[84.7px] md:leading-[86px]"
             initial={false}
             animate={{ opacity: show ? 1 : 0 }}
             transition={{ duration: 0.85, delay: show ? 0.05 : 0, ease }}

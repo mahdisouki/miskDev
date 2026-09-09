@@ -2,7 +2,10 @@
 import { assets } from './assets'
 
 export const LOGO_URL =
-  'https://res.cloudinary.com/wntdlk90/image/upload/v1787832248/Misk_Managers_6_1_tjjmcz.png'
+  'https://res.cloudinary.com/wntdlk90/image/upload/v1788961505/Misk_Managers_2_1_1_ftxpt5.png'
+
+export const LOGO_MONO_URL =
+  'https://res.cloudinary.com/wntdlk90/image/upload/v1788961505/Misk_Managers_3_5_2_rsdmaq.png'
 
 export const EMAIL = 'hi@miskmanagers.com'
 
@@ -227,11 +230,11 @@ export const contact = {
   interests: [
     'Web Design & Development',
     'Mobile App Development',
+    'AI & Automation',
     'UI/UX Design',
     'Brand Identity',
     'E-commerce',
     'Custom Software',
-    'AI & Automation',
     'Consulting & Strategy',
   ],
   defaultInterests: [
@@ -262,13 +265,20 @@ export const contact = {
     'Both B2B & B2C',
     'Internal / Enterprise',
   ],
+  serviceOptions: [
+    'Development',
+    'Design',
+    'Social Media Management',
+    'AI Solutions',
+    'Not sure yet',
+  ],
   budgets: [
-    'Under $5,000',
-    '$5,000 - $15,000',
-    '$15,000 - $30,000',
-    '$30,000 - $50,000',
-    '$50,000 - $100,000',
-    '$100,000+',
+    'Under €5,000',
+    '€5,000 - €15,000',
+    '€15,000 - €30,000',
+    '€30,000 - €50,000',
+    '€50,000 - €100,000',
+    '€100,000+',
     'Not sure yet',
   ],
   offices: [
